@@ -1,0 +1,12 @@
+html {
+    font-family: 'Courier New', Courier, monospace;
+    color:aquamarine;
+    background-color: aliceblue;
+}
+
+body {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
