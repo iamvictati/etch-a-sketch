@@ -20,7 +20,7 @@ h1 {
 
 #grid-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: stretch;
     width: 666px;
@@ -32,15 +32,12 @@ h1 {
     display: flex; 
     flex-direction: column; 
     justify-content: space-evenly;
-    align-items: center;
     border: 1px solid black; 
-    flex: 1; 
+    flex: 1;
 }
 
-.row {
-    display: block; 
+.row { 
     border: 1px solid black; 
-
 }
 
 
