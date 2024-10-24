@@ -26,11 +26,6 @@ function spawnGrid(rowNum) {
 }
 spawnGrid(rowNum); 
 
-
-
-
-
-
 //TIPS BY PHOSPHOR: 
 /*I also used flex wrap on mine. the workaround I used for wrap and sizes was to calculate and set the width each time I changed the dimensions.
 
