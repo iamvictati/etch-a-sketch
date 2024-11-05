@@ -1,8 +1,9 @@
 const gridContainer = document.querySelector("#grid-container"); 
-let rowNum = 80; 
-let cellNum = 80; 
+let rowNum = 16; 
+let cellNum = 16; 
 let rowHeight = gridContainer.clientHeight / rowNum; 
 let cellWidth = gridContainer.clientWidth / cellNum; 
+
 
 function spawnGrid(rowNum) {
 
@@ -19,7 +20,7 @@ function spawnGrid(rowNum) {
             row.appendChild(cell);
 
             cell.addEventListener("mouseover", (event) => {
-                cell.style.backgroundColor = "pink"; 
+                cell.style.backgroundColor = "turquoise"; 
             });
         }
     }
