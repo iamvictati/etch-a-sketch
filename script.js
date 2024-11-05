@@ -1,9 +1,14 @@
 const gridContainer = document.querySelector("#grid-container"); 
+const gridButton = document.querySelector("#grid-button");
+const penButton = document.querySelector("#pen-button"); 
 let rowNum = 16; 
 let cellNum = 16; 
 let rowHeight = gridContainer.clientHeight / rowNum; 
 let cellWidth = gridContainer.clientWidth / cellNum; 
 
+gridButton.addEventListener("click", (event) => {
+
+});
 
 function spawnGrid(rowNum) {
 
