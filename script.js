@@ -7,7 +7,10 @@ let rowHeight = gridContainer.clientHeight / rowNum;
 let cellWidth = gridContainer.clientWidth / cellNum; 
 
 gridButton.addEventListener("click", (event) => {
-
+    let gridModal = document.createElement('div'); 
+    gridModal.classList.add('grid-modal'); 
+    gridModal.setAttribute('id', 'grid-modal'); 
+    document.body.appendChild(gridModal); 
 });
 
 function spawnGrid(rowNum) {
