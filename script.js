@@ -10,7 +10,26 @@ gridButton.addEventListener("click", (event) => {
     let gridModal = document.createElement('div'); 
     gridModal.classList.add('grid-modal'); 
     gridModal.setAttribute('id', 'grid-modal'); 
+    let closeButton = document.createElement('button');
+    closeButton.classList.add('button'); 
+    closeButton.setAttribute('id', 'close-button'); 
+    closeButton.textContent = 'X'; 
+    gridModal.appendChild(closeButton); 
+    let text = document.createElement('p');
+    text.classList.add('p');
+    text.style.color = 'lightcyan'; 
+    text.textContent = 'Please write a grid size up to 80';
+    gridModal.appendChild(text); 
+    let gridInput = document.createElement('input');
+    gridInput.classList.add('button'); 
+    gridInput.setAttribute('id', 'grid-input');  
+    gridModal.appendChild(gridInput); 
+    let caption = document.createElement('figcaption');
+    caption.textContent = 'Press Enter'; 
+    caption.style.fontSize = '12px';
+    gridModal.appendChild(caption);
     document.body.appendChild(gridModal); 
+
 });
 
 function spawnGrid(rowNum) {
