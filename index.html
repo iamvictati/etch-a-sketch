@@ -12,8 +12,14 @@
     <h3>Give it a go, just sketch whatever!</h3>
     <div id="grid-container" class="container"></div>
     <div id="button-container">
-        <button type="submit" id="grid-button" class="button">Grid Size</button>
-        <button id="pen-button" class="button">Pen Color</button>
+        <label>Pen Color
+            <select id="pen-button" class="button">
+                <option>Turquoise</option>
+                <option>Baby Yellow</option>
+                <option>Mixed</option>
+            <select>
+        </label>
+        <button onclick = "selectGrid()" type="submit" id="grid-button" class="button">Grid Size</button>
         <button id="clear-grid" class="button">Clear Grid</button>
     </div>
 </body>

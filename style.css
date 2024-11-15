@@ -27,6 +27,20 @@ p {
 
 }
 
+label {
+    display: block;
+    color: whitesmoke; 
+    font-size: 15px;
+    font-weight: bold; 
+    /* border: 2px solid black;  */
+}
+
+option {
+    font-weight: bold; 
+    font-size: 12px; 
+    color: grey; 
+}
+
 #grid-container {
     display: flex;
     flex-direction: column;
@@ -99,11 +113,3 @@ p {
     border: 3px solid lightblue; 
     cursor: pointer; 
 }
-
-
-
-
-
-
-
-

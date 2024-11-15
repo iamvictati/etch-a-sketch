@@ -6,7 +6,29 @@ let cellNum = 16;
 let rowHeight = gridContainer.clientHeight / rowNum; 
 let cellWidth = gridContainer.clientWidth / cellNum; 
 
-gridButton.addEventListener("click", (event) => {
+function spawnGrid(rowNum) {
+
+    for (let i = 0; i < rowNum; i++) {
+        const row = document.createElement("div"); 
+        row.classList.add("row"); 
+        row.style.height = `${rowHeight + "px"}`; 
+        gridContainer.appendChild(row);
+        
+        for (let i = 0; i < cellNum; i++) {
+            const cell = document.createElement("div"); 
+            cell.classList.add("cell");
+            cell.style.width = `${cellWidth + "px"}`;
+            row.appendChild(cell);
+
+            cell.addEventListener("mouseover", (event) => {
+                cell.style.backgroundColor = "turquoise"; 
+            });
+        }
+    }
+}
+spawnGrid(rowNum); 
+
+function selectGrid() {
     let gridModal = document.createElement('div'); 
     gridModal.classList.add('grid-modal'); 
     gridModal.setAttribute('id', 'grid-modal'); 
@@ -30,29 +52,16 @@ gridButton.addEventListener("click", (event) => {
     gridModal.appendChild(caption);
     document.body.appendChild(gridModal); 
 
-});
-
-function spawnGrid(rowNum) {
-
-    for (let i = 0; i < rowNum; i++) {
-        const row = document.createElement("div"); 
-        row.classList.add("row"); 
-        row.style.height = `${rowHeight + "px"}`; 
-        gridContainer.appendChild(row);
-        
-        for (let i = 0; i < cellNum; i++) {
-            const cell = document.createElement("div"); 
-            cell.classList.add("cell");
-            cell.style.width = `${cellWidth + "px"}`;
-            row.appendChild(cell);
-
-            cell.addEventListener("mouseover", (event) => {
-                cell.style.backgroundColor = "turquoise"; 
-            });
-        }
-    }
+    closeButton.addEventListener('click', (event) => {
+        document.querySelector('.grid-modal').style.display = 'none'; 
+        document.body.removeChild(gridModal); 
+    }); 
 }
-spawnGrid(rowNum); 
+
+
+
+
+
 
 //TIPS BY PHOSPHOR: 
 /*I also used flex wrap on mine. the workaround I used for wrap and sizes was to calculate and set the width each time I changed the dimensions.
