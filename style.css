@@ -71,7 +71,7 @@ option {
     width: 600px;
     height: 40px;
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: space-between; 
     align-items: center;
 }
 

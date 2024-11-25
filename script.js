@@ -2,7 +2,7 @@ const gridContainer = document.querySelector("#grid-container");
 const gridButton = document.querySelector("#grid-button");
 const penButton = document.querySelector("#pen-button"); 
 let rowNum = 16; 
-let cellNum = 16; 
+let cellNum = rowNum; 
 let rowHeight = gridContainer.clientHeight / rowNum; 
 let cellWidth = gridContainer.clientWidth / cellNum; 
 
@@ -44,7 +44,7 @@ function selectGrid() {
     gridModal.appendChild(text); 
     let gridInput = document.createElement('input');
     gridInput.classList.add('button'); 
-    gridInput.setAttribute('id', 'grid-input');  
+    gridInput.setAttribute('id', 'grid-input'); 
     gridModal.appendChild(gridInput); 
     let caption = document.createElement('figcaption');
     caption.textContent = 'Press Enter'; 
@@ -55,12 +55,28 @@ function selectGrid() {
     closeButton.addEventListener('click', (event) => {
         document.querySelector('.grid-modal').style.display = 'none'; 
         document.body.removeChild(gridModal); 
-    }); 
+    });
+
+    function  newGrid() {
+
+        if (rowNum >= 1 & rowNum <= 80 ) {
+            spawnGrid(rowNum); 
+            document.querySelector('.grid-modal').style.display = 'none'; 
+            document.body.removeChild(gridModal); 
+        } else {
+            alert('Your number is over the limit'); 
+        }
+    }
+
+    gridInput.addEventListener('keydown', (event) => {
+        if (event.key === "Enter") {
+            rowNum = gridInput.value; 
+            cellNum = gridInput.value; 
+            newGrid(rowNum); 
+        }
+    })
+
 }
-
-
-
-
 
 
 //TIPS BY PHOSPHOR: 
