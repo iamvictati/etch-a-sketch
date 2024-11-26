@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector("#grid-container"); 
 const gridButton = document.querySelector("#grid-button");
+// const clearGridBtn = document.querySelector('#clear-grid'); 
 const penButton = document.querySelector("#pen-button"); 
 let rowNum = 16; 
 let cellNum = rowNum; 
@@ -7,7 +8,6 @@ let rowHeight = gridContainer.clientHeight / rowNum;
 let cellWidth = gridContainer.clientWidth / cellNum; 
 
 function spawnGrid(rowNum) {
-
     for (let i = 0; i < rowNum; i++) {
         const row = document.createElement("div"); 
         row.classList.add("row"); 
@@ -23,6 +23,10 @@ function spawnGrid(rowNum) {
             cell.addEventListener("mouseover", (event) => {
                 cell.style.backgroundColor = "turquoise"; 
             });
+
+            // clearGridBtn.addEventListener('click', (event) => {
+            //     cell.style.backgroundColor = 'aliceblue'; 
+            // })
         }
     }
 }
@@ -57,27 +61,35 @@ function selectGrid() {
         document.body.removeChild(gridModal); 
     });
 
-    function  newGrid() {
-
-        if (rowNum >= 1 & rowNum <= 80 ) {
-            spawnGrid(rowNum); 
-            document.querySelector('.grid-modal').style.display = 'none'; 
-            document.body.removeChild(gridModal); 
-        } else {
-            alert('Your number is over the limit'); 
-        }
-    }
-
     gridInput.addEventListener('keydown', (event) => {
         if (event.key === "Enter") {
             rowNum = gridInput.value; 
             cellNum = gridInput.value; 
             newGrid(rowNum); 
         }
-    })
-
+    });
 }
 
+function  newGrid() {
+    if (rowNum >= 1 & rowNum <= 80 ) {
+        gridContainer.replaceChildren(); 
+        spawnGrid(rowNum); 
+        document.querySelector('.grid-modal').style.display = 'none'; 
+        document.body.removeChild(gridModal); 
+    } else {
+        alert('Your number is over the limit'); 
+    }
+}
+
+function clearGrid() {
+    const cells = document.querySelectorAll('.cell'); 
+    cells.forEach(cell => {
+        cell.style.backgroundColor = 'aliceblue'; 
+    });
+}
+
+// [1] Eliminate bug with modal function after a second selectiong of grid number 
+// [2] Cteate the pen color select function or event Listeners 
 
 //TIPS BY PHOSPHOR: 
 /*I also used flex wrap on mine. the workaround I used for wrap and sizes was to calculate and set the width each time I changed the dimensions.
