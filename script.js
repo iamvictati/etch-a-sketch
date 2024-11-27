@@ -1,6 +1,5 @@
 const gridContainer = document.querySelector("#grid-container"); 
 const gridButton = document.querySelector("#grid-button");
-// const clearGridBtn = document.querySelector('#clear-grid'); 
 const penButton = document.querySelector("#pen-button"); 
 let rowNum = 16; 
 let cellNum = rowNum; 
@@ -23,10 +22,6 @@ function spawnGrid(rowNum) {
             cell.addEventListener("mouseover", (event) => {
                 cell.style.backgroundColor = "turquoise"; 
             });
-
-            // clearGridBtn.addEventListener('click', (event) => {
-            //     cell.style.backgroundColor = 'aliceblue'; 
-            // })
         }
     }
 }
@@ -56,10 +51,7 @@ function selectGrid() {
     gridModal.appendChild(caption);
     document.body.appendChild(gridModal); 
 
-    closeButton.addEventListener('click', (event) => {
-        document.querySelector('.grid-modal').style.display = 'none'; 
-        document.body.removeChild(gridModal); 
-    });
+    closeButton.addEventListener('click', closeModal); 
 
     gridInput.addEventListener('keydown', (event) => {
         if (event.key === "Enter") {
@@ -70,6 +62,11 @@ function selectGrid() {
             document.body.removeChild(gridModal); 
         }
     });
+}
+
+function closeModal() {
+    document.querySelector('.grid-modal').style.display = 'none'; 
+    document.body.removeChild(gridModal); 
 }
 
 function  newGrid() {
@@ -89,4 +86,5 @@ function clearGrid() {
 }
 
 // [💜] Eliminate bug with modal function after a second selectiong of grid number 
-// [2] Cteate the pen color select function or event Listeners 
+// [2] Create the pen color select function or event Listeners 
+// [3] Create opacity effect 
