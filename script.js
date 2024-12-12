@@ -1,10 +1,16 @@
 const gridContainer = document.querySelector("#grid-container"); 
 const gridButton = document.querySelector("#grid-button");
 const penButton = document.querySelector("#pen-button"); 
+const colorArray = ["turquoise", "yellow", "hotpink"]
 let rowNum = 16; 
 let cellNum = rowNum; 
 let rowHeight = gridContainer.clientHeight / rowNum; 
 let cellWidth = gridContainer.clientWidth / cellNum; 
+let penColor = penButton.value; 
+
+penButton.addEventListener("change", (event) => { 
+    penColor = event.target.value; 
+});
 
 function spawnGrid(rowNum) {
     for (let i = 0; i < rowNum; i++) {
@@ -20,7 +26,15 @@ function spawnGrid(rowNum) {
             row.appendChild(cell);
 
             cell.addEventListener("mouseover", (event) => {
-                cell.style.backgroundColor = "turquoise"; 
+                if (penColor === "turquoise") { 
+                    cell.style.backgroundColor = 'turquoise';
+                } else if (penColor === "yellow") {
+                    cell.style.backgroundColor = "yellow"; 
+                } else if (penColor === "pink") {
+                    cell.style.backgroundColor = "hotpink"; 
+                } else if (penColor === "mixed") {
+                    cell.style.backgroundColor =  colorArray[Math.floor(Math.random() * colorArray.length)]; 
+                };
             });
         }
     }
@@ -51,7 +65,10 @@ function selectGrid() {
     gridModal.appendChild(caption);
     document.body.appendChild(gridModal); 
 
-    closeButton.addEventListener('click', closeModal); 
+    closeButton.addEventListener('click', (event) => {
+        document.querySelector('.grid-modal').style.display = 'none'; 
+        document.body.removeChild(gridModal);
+    }); 
 
     gridInput.addEventListener('keydown', (event) => {
         if (event.key === "Enter") {
@@ -62,11 +79,6 @@ function selectGrid() {
             document.body.removeChild(gridModal); 
         }
     });
-}
-
-function closeModal() {
-    document.querySelector('.grid-modal').style.display = 'none'; 
-    document.body.removeChild(gridModal); 
 }
 
 function  newGrid() {
@@ -86,5 +98,6 @@ function clearGrid() {
 }
 
 // [💜] Eliminate bug with modal function after a second selectiong of grid number 
-// [2] Create the pen color select function or event Listeners 
-// [3] Create opacity effect 
+// [💜] Create the pen color select function or event Listeners 
+// [ ] Create opacity effect 
+// [💜] Fix bug that appears after trying to hit the x in gridModal
