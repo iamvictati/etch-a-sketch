@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector("#grid-container"); 
 const gridButton = document.querySelector("#grid-button");
 const penButton = document.querySelector("#pen-button"); 
-const colorArray = ["turquoise", "yellow", "hotpink"]
+const colorArray = ["turquoise", "yellow", "hotpink", "lightseagreen", "lightpink"];
 let rowNum = 16; 
 let cellNum = rowNum; 
 let rowHeight = gridContainer.clientHeight / rowNum; 
@@ -26,13 +26,22 @@ function spawnGrid(rowNum) {
             row.appendChild(cell);
 
             cell.addEventListener("mouseover", (event) => {
-                if (penColor === "turquoise") { 
+                if (penColor === "turquoise" & cell.style.backgroundColor !== "turquoise") { 
                     cell.style.backgroundColor = 'turquoise';
-                } else if (penColor === "yellow") {
+                } else if (penColor === "yellow" & cell.style.backgroundColor !== "yellow") {
                     cell.style.backgroundColor = "yellow"; 
-                } else if (penColor === "pink") {
+                } else if (penColor === "hotpink" & cell.style.backgroundColor !== "hotpink") {
                     cell.style.backgroundColor = "hotpink"; 
-                } else if (penColor === "mixed") {
+                } else if (penColor === "lightpink" & cell.style.backgroundColor !== "lightpink") {
+                    cell.style.backgroundColor = "lightpink";
+                } else if (penColor === "seagreen" & cell.style.backgroundColor !== "seagreen") {
+                    cell.style.backgroundColor = "lightseagreen"; 
+                } else if (penColor === "mixed" 
+                    & cell.style.backgroundColor !== "turquoise"
+                    & cell.style.backgroundColor !== "yellow" 
+                    & cell.style.backgroundColor !== "hotpink" 
+                    & cell.style.backgroundColor !== "lightpink" 
+                    & cell.style.backgroundColor !== "lightseagreen") {
                     cell.style.backgroundColor =  colorArray[Math.floor(Math.random() * colorArray.length)]; 
                 };
             });
@@ -95,6 +104,10 @@ function clearGrid() {
     cells.forEach(cell => {
         cell.style.backgroundColor = 'aliceblue'; 
     });
+}
+
+function opacityEffect() {
+
 }
 
 // [💜] Eliminate bug with modal function after a second selectiong of grid number 
