@@ -106,10 +106,6 @@ function clearGrid() {
     });
 }
 
-function opacityEffect() {
-
-}
-
 // [💜] Eliminate bug with modal function after a second selectiong of grid number 
 // [💜] Create the pen color select function or event Listeners 
 // [ ] Create opacity effect 
