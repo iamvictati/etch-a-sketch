@@ -29,19 +29,19 @@ function spawnGrid(rowNum) {
             cell.addEventListener("mouseover", (event) => {
                 if (penColor === "turquoise" & cell.style.backgroundColor !== "turquoise") { 
                     cell.style.backgroundColor = 'turquoise';
-                    cell.style.opacity = 0.8;
+                    
                 } else if (penColor === "yellow" & cell.style.backgroundColor !== "yellow") {
                     cell.style.backgroundColor = "yellow"; 
-                    cell.style.opacity = 0.8;
+                    
                 } else if (penColor === "hotpink" & cell.style.backgroundColor !== "hotpink") {
                     cell.style.backgroundColor = "hotpink"; 
-                    cell.style.opacity = 0.8;
+                    
                 } else if (penColor === "lightpink" & cell.style.backgroundColor !== "lightpink") {
                     cell.style.backgroundColor = "lightpink";
-                    cell.style.opacity = 0.8;
+                    
                 } else if (penColor === "seagreen" & cell.style.backgroundColor !== "seagreen") {
                     cell.style.backgroundColor = "lightseagreen"; 
-                    cell.style.opacity = 0.8;
+                    
                 } else if (penColor === "mixed" 
                     & cell.style.backgroundColor !== "turquoise"
                     & cell.style.backgroundColor !== "yellow" 
@@ -49,7 +49,7 @@ function spawnGrid(rowNum) {
                     & cell.style.backgroundColor !== "lightpink" 
                     & cell.style.backgroundColor !== "lightseagreen") {
                     cell.style.backgroundColor =  colorArray[Math.floor(Math.random() * colorArray.length)]; 
-                    cell.style.opacity = 0.8;
+                    
                 };
             });
         }
