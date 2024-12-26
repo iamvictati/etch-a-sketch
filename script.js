@@ -2,6 +2,7 @@ const gridContainer = document.querySelector("#grid-container");
 const gridButton = document.querySelector("#grid-button");
 const penButton = document.querySelector("#pen-button"); 
 const colorArray = ["turquoise", "yellow", "hotpink", "lightseagreen", "lightpink"];
+const opacityButton = document.querySelector("opacity-button");
 let rowNum = 16; 
 let cellNum = rowNum; 
 let rowHeight = gridContainer.clientHeight / rowNum; 
@@ -28,14 +29,19 @@ function spawnGrid(rowNum) {
             cell.addEventListener("mouseover", (event) => {
                 if (penColor === "turquoise" & cell.style.backgroundColor !== "turquoise") { 
                     cell.style.backgroundColor = 'turquoise';
+                    cell.style.opacity = 0.8;
                 } else if (penColor === "yellow" & cell.style.backgroundColor !== "yellow") {
                     cell.style.backgroundColor = "yellow"; 
+                    cell.style.opacity = 0.8;
                 } else if (penColor === "hotpink" & cell.style.backgroundColor !== "hotpink") {
                     cell.style.backgroundColor = "hotpink"; 
+                    cell.style.opacity = 0.8;
                 } else if (penColor === "lightpink" & cell.style.backgroundColor !== "lightpink") {
                     cell.style.backgroundColor = "lightpink";
+                    cell.style.opacity = 0.8;
                 } else if (penColor === "seagreen" & cell.style.backgroundColor !== "seagreen") {
                     cell.style.backgroundColor = "lightseagreen"; 
+                    cell.style.opacity = 0.8;
                 } else if (penColor === "mixed" 
                     & cell.style.backgroundColor !== "turquoise"
                     & cell.style.backgroundColor !== "yellow" 
@@ -43,6 +49,7 @@ function spawnGrid(rowNum) {
                     & cell.style.backgroundColor !== "lightpink" 
                     & cell.style.backgroundColor !== "lightseagreen") {
                     cell.style.backgroundColor =  colorArray[Math.floor(Math.random() * colorArray.length)]; 
+                    cell.style.opacity = 0.8;
                 };
             });
         }
@@ -106,7 +113,11 @@ function clearGrid() {
     });
 }
 
+function opacityEffect() {
+    
+}
+
 // [💜] Eliminate bug with modal function after a second selectiong of grid number 
 // [💜] Create the pen color select function or event Listeners 
-// [ ] Create opacity effect 
+// [ ] Create opacity effect - probably you could just document.querySelector(el).style If isOpacityEnabled = true
 // [💜] Fix bug that appears after trying to hit the x in gridModal
